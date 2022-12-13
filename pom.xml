@@ -22,6 +22,24 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+	<!--essa ferramenta é pra reiniciar automaticamente depois de vc salvar a aplicacao	 -->
+	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+	<!--essa ferramenta é pra usar o spring boot jpa no projeto	 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!--essa ferramenta é pra utilizar o banco de dados h2 que é em memoria fica mais rapido, mais facil e mais leve pra rodar  -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
