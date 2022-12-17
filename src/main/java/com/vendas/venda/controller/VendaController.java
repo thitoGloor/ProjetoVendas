@@ -3,10 +3,7 @@ package com.vendas.venda.controller;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,12 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.vendas.venda.controller.dto.VendaDto;
-import com.vendas.venda.controller.dto.VendedorDto;
 import com.vendas.venda.controller.form.AtualizarVendaForm;
-import com.vendas.venda.controller.form.AtualizarVendedorForm;
 import com.vendas.venda.controller.form.VendaForm;
 import com.vendas.venda.modelo.Venda;
-import com.vendas.venda.modelo.Vendedor;
 import com.vendas.venda.repository.VendaRepository;
 import com.vendas.venda.repository.VendedorRepository;
 
@@ -40,15 +34,12 @@ public class VendaController {
 	
 	@GetMapping
 	public List<VendaDto> getAll(Integer id){
-
-			List<Venda> vendas = vendaRepository.findAll();				
-			
-			return VendaDto.converter(vendas);
+		List<Venda> vendas = vendaRepository.findAll();			
+		return VendaDto.converter(vendas);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<VendaDto> buscaPorId(@PathVariable Integer id) {
-		
+	public ResponseEntity<VendaDto> buscaPorId(@PathVariable Integer id) {		
 		Optional<Venda> venda = vendaRepository.findById(id);
 		if(venda.isPresent()) {
 			return ResponseEntity.ok(new VendaDto(venda.get())) ;
@@ -60,16 +51,14 @@ public class VendaController {
 	@Transactional
 	public ResponseEntity<VendaDto> cadastrar(@RequestBody VendaForm form, UriComponentsBuilder uriBuilder){
 		Venda venda = form.converter(vendedorRepository);
-		vendaRepository.save(venda);
-		
+		vendaRepository.save(venda);		
 		URI uri =uriBuilder.path("/vendas/{id}").buildAndExpand(venda.getId()).toUri();
 		return ResponseEntity.created(uri).body(new VendaDto(venda));
 	}
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<VendaDto> atualizar(@PathVariable Integer id, @RequestBody AtualizarVendaForm form){		
-		
+	public ResponseEntity<VendaDto> atualizar(@PathVariable Integer id, @RequestBody AtualizarVendaForm form){			
 		Optional<Venda> optional = vendaRepository.findById(id);
 		if(optional.isPresent()) {
 			Venda venda = form.atualizar(id, vendaRepository);
@@ -83,17 +72,15 @@ public class VendaController {
 	public ResponseEntity<?> remove(@PathVariable Integer id){
 		Optional<Venda> optional = vendaRepository.findById(id);
 		if(optional.isPresent()) {
-		vendaRepository.deleteById(id);
-		return ResponseEntity.ok().build();
+			vendaRepository.deleteById(id);
+			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();	
 	}
 	
 	@GetMapping("/contar")
 	public Integer contador () {
-	Integer qnt =	vendaRepository.quantidadeVenda();
+		Integer qnt =	vendaRepository.quantidadeVenda();
 		return qnt;
-	}
-	
-	}
-
+	}	
+}

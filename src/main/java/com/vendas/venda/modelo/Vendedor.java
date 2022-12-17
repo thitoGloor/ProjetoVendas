@@ -3,15 +3,15 @@ package com.vendas.venda.modelo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "vendedor")
 public class Vendedor {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,8 @@ public class Vendedor {
 	private String nome;
 	private String endereco;
 	@OneToMany(mappedBy = "vendedor")
-	private List<Venda> vendas = new ArrayList<>();
-	
+	private List<Venda> vendas = new ArrayList<>();	
+		
 	public Vendedor() {
 		
 	}
@@ -30,16 +30,16 @@ public class Vendedor {
 		this.endereco = endereco;
 		this.vendas = vendas;
 	}
+	
 	public Vendedor(String nome, String endereco) {
 		this.nome = nome;
-		this.endereco = endereco;
-		
-	}
-	public Vendedor(String nome) {
-		this.nome = nome;
-		
+		this.endereco = endereco;		
 	}
 	
+	public Vendedor(String nome) {
+		this.nome = nome;		
+	}	
+		
 	@Override
 	public int hashCode() {
 		return Objects.hash(endereco, id, nome);
@@ -89,5 +89,4 @@ public class Vendedor {
 	public void setVendas(List<Venda> vendas) {
 		this.vendas = vendas;
 	}
-	
 }

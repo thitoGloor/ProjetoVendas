@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "venda")
 public class Venda {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +20,9 @@ public class Venda {
 	private double valor;	
 	//ainda nao sei o que fazer com isso
 	@ManyToOne
+	@JoinColumn(name = "vendedor_id")
 	private Vendedor vendedor;
-	
+		
 	public Venda() {
 		
 	}
@@ -27,10 +31,11 @@ public class Venda {
 		this.valor = valor;
 		this.vendedor = vendedor;
 	}
+	
 	public Venda(double valor) {
-		this.valor = valor;
-		
+		this.valor = valor;		
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(dataVenda, id, valor, vendedor);
@@ -47,7 +52,7 @@ public class Venda {
 		Venda other = (Venda) obj;
 		return Objects.equals(dataVenda, other.dataVenda) && Objects.equals(id, other.id)
 				&& Double.doubleToLongBits(valor) == Double.doubleToLongBits(other.valor);
-	}
+	}	
 	
 	public Integer getId() {
 		return id;

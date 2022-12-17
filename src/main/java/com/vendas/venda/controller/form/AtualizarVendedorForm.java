@@ -36,9 +36,7 @@ public class AtualizarVendedorForm {
 	public Vendedor atualizar(Integer id, VendedorRepository vendedorRepository) {
 		Vendedor vendedor = vendedorRepository.getOne(id);
 		vendedor.setNome(this.nome);
-		vendedor.setEndereco(this.endereco);
-					
+		vendedor.setEndereco(this.endereco);					
 		return vendedor;
 	}
-
 }
