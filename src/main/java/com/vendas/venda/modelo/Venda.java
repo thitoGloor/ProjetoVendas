@@ -2,6 +2,7 @@ package com.vendas.venda.modelo;
 
 import java.time.LocalDate;
 import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "venda")
 public class Venda {
@@ -17,8 +19,7 @@ public class Venda {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate dataVenda = LocalDate.now();
-	private double valor;	
-	//ainda nao sei o que fazer com isso
+	private double valor;		
 	@ManyToOne
 	@JoinColumn(name = "vendedor_id")
 	private Vendedor vendedor;

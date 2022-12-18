@@ -1,12 +1,14 @@
 package com.vendas.venda.controller.form;
 import java.time.LocalDate;
-import javax.validation.constraints.Null;
+
+import javax.persistence.Id;
+
 import com.vendas.venda.modelo.Venda;
 import com.vendas.venda.modelo.Vendedor;
 import com.vendas.venda.repository.VendedorRepository;
 
 public class VendaForm {
-	@Null
+	@Id 
 	private Integer id;
 	private LocalDate dataVenda;
 	private double valor;

@@ -3,7 +3,9 @@ package com.vendas.venda.controller;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
