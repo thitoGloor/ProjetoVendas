@@ -3,8 +3,7 @@ package com.vendas.venda.controller.form;
 import com.vendas.venda.modelo.Vendedor;
 import com.vendas.venda.repository.VendedorRepository;
 
-public class AtualizarVendedorForm {
-	
+public class AtualizarVendedorForm {	
 	private Integer id;
 	private String nome;
 	private String endereco;

@@ -3,9 +3,7 @@ package com.vendas.venda.controller;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,7 +33,7 @@ public class VendaController {
 	private VendedorRepository vendedorRepository;
 	
 	@GetMapping
-	public List<VendaDto> getAll(Integer id){
+	public List<VendaDto> getAll(){
 		List<Venda> vendas = vendaRepository.findAll();			
 		return VendaDto.converter(vendas);
 	}

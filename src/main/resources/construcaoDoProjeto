@@ -1,0 +1,39 @@
+  Olá aqui colocarei anotações sobre o projeto.
+
+  			SOBRE O PROJETO:
+  	O projeto consistia em desenvolver uma APIRest utilizando o SpringBoot onde fosse capaz de realizar uma venda.
+  	Dessa forma, foi criado para as duas entidades (Venda, e Vendedor) as classes: model, controller, dto, form e interfaces repository.
+  	na classe model foram colocados os atributos necessarios para a conexao com o banco de dados.
+  	na classe controller foram criados os metodos para a criação do CRUD
+  	A classe Dto contém os metodos nessessários para quando uma consulta via get seja realizada retorne os atributos estanciados nessa classe.
+  	Já na classe form tem os metodos que precisa para inserir ou atualizar um novo cadastro por meio de puts e posts. 
+  	E nas interfaces repository é onde são carregados os dados do banco de dados.
+  	Os testes unitarios foram feitos apenas na classe vendedorRepository.
+  	
+  			SOBRE AS OPERAÇÕES
+  	Nessa aplicação conseguiremos fazer as seguintes operações:
+  	-inserir uma nova venda com os atributos:(id, dataVenda, valor, vendedorId);
+  	-Realizar uma busca de todas as vendas ou com um id de venda especifico onde retornará (id da venda, data da venda, valor, id e nome do vendedor);
+  	-Realizar uma alteração nos campos(dataVenda, valor) de uma Venda;
+  	-Deletar uma venda;
+  	
+  	-inserir um novo vendedor com os atributos(id, nome, endereco);
+  	-Realizar uma busca de todos os vendedore ou com um id especifico, onde retornará(id do vendedor, nome, endereco e a quantidade de vendas);
+  	-Realizar uma alteração nos campos(nome, endereco) de um vendedor;
+  	-deletar um vendedor;
+  	-Realizar uma busca onde retornará todos os vendedores que realizaram vendas em um periodo de data especifico, onde retornará(
+  	id do vendedor, endereço a quantidade de vendas, a media dessas vendas e a soma total dessas vendas);
+  	
+  	
+  			SOBRE AS DIFICULDADES ENCONTRADAS E CONSIDERAÇÕES FINAIS
+  	Quando recebi o teste ,ja havia ouvido falar sobre spring boot, porém ainda não tinha o conhecimento necessário sobre o framework, 
+  então para conseguir fazer o projeto precisei assitir um curso sobre esse framework que me ajudou muito com o projeto, conseguindo dar
+  continuidade no projeto, outros pontos que tive dificuldades foram na implementação do banco com a api onde foi preciso usar uma query
+  native, procurei ajuda com videos na internet até conseguir implementar a busca pelo query native, mas com os testes unitarios, ainda
+  estou com dificuldades, consegui implementar apenas dois testes, mesmos assistindo alguns videos pois também não havia aprendido isso
+  na faculdade.
+  	Mesmo não conseguindo fazer o teste por completo fiquei muito satisfeito com o projeto, com a evolução obtida e conhecimento adquirido 
+  com a linguagem e com esse framework.
+  	Desde já agradeço pela oportunidade.
+  
+   

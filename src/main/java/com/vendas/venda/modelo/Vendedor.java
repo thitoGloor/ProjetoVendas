@@ -3,7 +3,6 @@ package com.vendas.venda.modelo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +19,9 @@ public class Vendedor {
 	private String nome;
 	private String endereco;
 	@OneToMany(mappedBy = "vendedor")
-	private List<Venda> vendas = new ArrayList<>();	
-		
-	public Vendedor() {
-		
+	private List<Venda> vendas = new ArrayList<>();
+				
+	public Vendedor() {		
 	}
 	
 	public Vendedor(String nome, String endereco, List<Venda> vendas) {

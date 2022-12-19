@@ -1,10 +1,10 @@
 package com.vendas.venda.controller.form;
+
 import java.time.LocalDate;
 import com.vendas.venda.modelo.Venda;
 import com.vendas.venda.repository.VendaRepository;
 
-public class AtualizarVendaForm {
-	
+public class AtualizarVendaForm {	
 	private LocalDate dataVenda;		
 	private double valor;		
 		
@@ -26,5 +26,5 @@ public class AtualizarVendaForm {
 		venda.setDataVenda(this.dataVenda);
 		venda.setValor(this.valor);							
 		return venda;
-	}		
+	}	
 }
